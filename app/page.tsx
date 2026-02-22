@@ -1,10 +1,18 @@
 "use client";
 
-import Image from "next/image";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import {
+  Link as LinkIcon,
+  BarChart3,
+  Zap,
+  Share2,
+  QrCode,
+  Lock,
+  ArrowRight,
+} from "lucide-react";
 
 export default function Home() {
   const { isSignedIn } = useUser();
@@ -14,74 +22,158 @@ export default function Home() {
     if (isSignedIn) router.push("/dashboard");
   }, [isSignedIn, router]);
 
+  const features = [
+    {
+      icon: Zap,
+      title: "Instant Link Shortening",
+      description:
+        "Convert long URLs into short, memorable links in seconds. Share them anywhere with confidence.",
+    },
+    {
+      icon: BarChart3,
+      title: "Real-time Analytics",
+      description:
+        "Track every click, view detailed analytics, and understand your audience with comprehensive reports.",
+    },
+    {
+      icon: QrCode,
+      title: "QR Code Generation",
+      description:
+        "Generate custom QR codes for your shortened links. Perfect for print and digital campaigns.",
+    },
+    {
+      icon: Share2,
+      title: "Easy Sharing",
+      description:
+        "One-click copy to clipboard. Share your links instantly across all platforms and channels.",
+    },
+    {
+      icon: Lock,
+      title: "Secure & Reliable",
+      description:
+        "Your links are protected with industry-standard security. Never lose your data with our reliable infrastructure.",
+    },
+    {
+      icon: LinkIcon,
+      title: "Custom Short Codes",
+      description:
+        "Create branded URLs with custom short codes that reflect your brand identity.",
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-linear-to-br from-black via-gray-900 to-black text-white">
+      {/* Hero Section */}
+      <section className="px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center space-y-8">
+            <div className="space-y-4">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
+                Shorten Your Links,{" "}
+                <span className="bg-linear-to-r from-[#6c47ff] to-purple-400 bg-clip-text text-transparent">
+                  Amplify Your Reach
+                </span>
+              </h1>
+              <p className="text-xl sm:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                Create short, shareable links. Track performance in real-time.
+                Make every click count with our powerful link management platform.
+              </p>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+              <Button
+                onClick={() => router.push("/auth/sign-up")}
+                className="bg-[#6c47ff] hover:bg-[#5a3fd6] text-white px-8 py-3 text-lg rounded-lg font-semibold flex items-center justify-center gap-2 h-auto"
+              >
+                Get Started <ArrowRight className="w-5 h-5" />
+              </Button>
+              <Button
+                variant="outline"
+                className="border-gray-600 text-gray-200 hover:bg-gray-800 px-8 py-3 text-lg rounded-lg font-semibold h-auto"
+                onClick={() => document.getElementById("features")?.scrollIntoView({ behavior: "smooth" })}
+              >
+                Learn More
+              </Button>
+            </div>
+
+            {/* Quick Stats */}
+            <div className="grid grid-cols-3 gap-4 py-12 border-t border-gray-800 pt-12">
+              <div>
+                <div className="text-3xl font-bold text-[#6c47ff]">10M+</div>
+                <p className="text-gray-400">Links Created</p>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-[#6c47ff]">100M+</div>
+                <p className="text-gray-400">Clicks Tracked</p>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-[#6c47ff]">99.9%</div>
+                <p className="text-gray-400">Uptime</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <Button
-            asChild
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-          >
-            <a
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                className="dark:invert"
-                src="/vercel.svg"
-                alt="Vercel logomark"
-                width={16}
-                height={16}
-              />
-              Deploy Now
-            </a>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-          >
-            <a
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Documentation
-            </a>
-          </Button>
+      </section>
+
+      {/* Features Section */}
+      <section
+        id="features"
+        className="px-4 py-20 sm:px-6 lg:px-8 bg-linear-to-b from-transparent to-gray-950"
+      >
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl sm:text-5xl font-bold">Powerful Features</h2>
+            <p className="text-xl text-gray-400">
+              Everything you need to manage and optimize your links
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={index}
+                  className="group bg-gray-900/50 border border-gray-800 rounded-lg p-8 hover:border-[#6c47ff]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#6c47ff]/10"
+                >
+                  <div className="mb-4 inline-block p-3 bg-linear-to-br from-[#6c47ff]/20 to-purple-600/20 rounded-lg group-hover:from-[#6c47ff]/30 group-hover:to-purple-600/30 transition-all">
+                    <Icon className="w-6 h-6 text-[#6c47ff]" />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-gray-400">{feature.description}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* CTA Section */}
+      <section className="px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl">
+          <div className="bg-linear-to-r from-[#6c47ff] to-purple-600 rounded-2xl p-12 text-center space-y-6">
+            <h2 className="text-4xl font-bold">Ready to Get Started?</h2>
+            <p className="text-lg text-white/90">
+              Join thousands of users who are already shortening links and tracking
+              their performance.
+            </p>
+            <Button
+              onClick={() => router.push("/auth/sign-up")}
+              className="bg-white text-[#6c47ff] hover:bg-gray-100 px-8 py-3 text-lg rounded-lg font-semibold"
+            >
+              Create Your First Link Now
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-800 px-4 py-8 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl text-center text-gray-400">
+          <p>&copy; 2026 LinkShortener. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 }
