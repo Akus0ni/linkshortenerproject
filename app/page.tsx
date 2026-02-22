@@ -63,7 +63,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-black via-gray-900 to-black text-white">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
       {/* Hero Section */}
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
@@ -71,7 +71,7 @@ export default function Home() {
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
                 Shorten Your Links,{" "}
-                <span className="bg-linear-to-r from-[#6c47ff] to-purple-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#6c47ff] to-purple-400 bg-clip-text text-transparent">
                   Amplify Your Reach
                 </span>
               </h1>
@@ -123,7 +123,7 @@ export default function Home() {
       {/* Features Section */}
       <section
         id="features"
-        className="px-4 py-20 sm:px-6 lg:px-8 bg-linear-to-b from-transparent to-gray-950"
+        className="px-4 py-20 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent to-gray-950"
       >
         <div className="mx-auto max-w-6xl">
           <div className="text-center mb-16 space-y-4">
@@ -141,7 +141,7 @@ export default function Home() {
                   key={index}
                   className="group bg-gray-900/50 border border-gray-800 rounded-lg p-8 hover:border-[#6c47ff]/50 transition-all duration-300 hover:shadow-lg hover:shadow-[#6c47ff]/10"
                 >
-                  <div className="mb-4 inline-block p-3 bg-linear-to-br from-[#6c47ff]/20 to-purple-600/20 rounded-lg group-hover:from-[#6c47ff]/30 group-hover:to-purple-600/30 transition-all">
+                  <div className="mb-4 inline-block p-3 bg-gradient-to-br from-[#6c47ff]/20 to-purple-600/20 rounded-lg group-hover:from-[#6c47ff]/30 group-hover:to-purple-600/30 transition-all">
                     <Icon className="w-6 h-6 text-[#6c47ff]" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
@@ -156,7 +156,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          <div className="bg-linear-to-r from-[#6c47ff] to-purple-600 rounded-2xl p-12 text-center space-y-6">
+          <div className="bg-gradient-to-r from-[#6c47ff] to-purple-600 rounded-2xl p-12 text-center space-y-6">
             <h2 className="text-4xl font-bold">Ready to Get Started?</h2>
             <p className="text-lg text-white/90">
               Join thousands of users who are already shortening links and tracking
