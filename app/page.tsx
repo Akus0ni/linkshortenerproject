@@ -84,13 +84,15 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
               <Button
                 onClick={() => router.push("/auth/sign-up")}
-                className="bg-[#6c47ff] hover:bg-[#5a3fd6] text-white px-8 py-3 text-lg rounded-lg font-semibold flex items-center justify-center gap-2 h-auto"
+                size="lg"
+                className="bg-[#6c47ff] hover:bg-[#5a3fd6] focus-visible:ring-offset-2 focus-visible:ring-[#6c47ff]/50"
               >
                 Get Started <ArrowRight className="w-5 h-5" />
               </Button>
               <Button
                 variant="outline"
-                className="border-gray-600 text-gray-200 hover:bg-gray-800 px-8 py-3 text-lg rounded-lg font-semibold h-auto"
+                size="lg"
+                className="border-gray-600 text-gray-200 hover:bg-gray-800 hover:border-gray-500 focus-visible:ring-offset-2"
                 onClick={() => document.getElementById("features")?.scrollIntoView({ behavior: "smooth" })}
               >
                 Learn More
