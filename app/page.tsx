@@ -1,6 +1,7 @@
 "use client";
 
 import { useUser } from "@clerk/nextjs";
+import { SignUpButton } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -82,13 +83,14 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-              <Button
-                onClick={() => router.push("/auth/sign-up")}
-                size="lg"
-                className="bg-[#6c47ff] hover:bg-[#5a3fd6] focus-visible:ring-offset-2 focus-visible:ring-[#6c47ff]/50"
-              >
-                Get Started <ArrowRight className="w-5 h-5" />
-              </Button>
+              <SignUpButton mode="modal">
+                <Button
+                  size="lg"
+                  className="bg-[#6c47ff] hover:bg-[#5a3fd6] focus-visible:ring-offset-2 focus-visible:ring-[#6c47ff]/50"
+                >
+                  Get Started <ArrowRight className="w-5 h-5" />
+                </Button>
+              </SignUpButton>
               <Button
                 variant="outline"
                 size="lg"
@@ -160,12 +162,13 @@ export default function Home() {
               Join thousands of users who are already shortening links and tracking
               their performance.
             </p>
-            <Button
-              onClick={() => router.push("/auth/sign-up")}
-              className="bg-white text-[#6c47ff] hover:bg-gray-100 px-8 py-3 text-lg rounded-lg font-semibold"
-            >
-              Create Your First Link Now
-            </Button>
+            <SignUpButton mode="modal">
+              <Button
+                className="bg-white text-[#6c47ff] hover:bg-gray-100 px-8 py-3 text-lg rounded-lg font-semibold"
+              >
+                Create Your First Link Now
+              </Button>
+            </SignUpButton>
           </div>
         </div>
       </section>
